@@ -21,6 +21,10 @@ public class CamisetaControllers {
     @Autowired
     private ModelMapper modelMapper;
 
+    @GetMapping("/test")
+    public String test(){
+        return "funciona api perrito, gracias gise!! ,aguante el rojo";
+    }
     @GetMapping("/camisetas")
     public ResponseEntity<?> getAllCamisetas(){
         List<Camiseta> camisetaList= camisetaService.getAllCamisetas();
@@ -34,6 +38,12 @@ public class CamisetaControllers {
         return new ResponseEntity(camisetaDTOOutList, HttpStatus.OK);
     }
 
+    @PostMapping("/camiseta")
+    public ResponseEntity<?> postCamiseta(@RequestBody Camiseta camiseta){
+        Camiseta camisetaNueva = this.camisetaService.save(camiseta);
+
+        return new ResponseEntity<>(camisetaNueva, HttpStatus.CREATED);
+    }
     @PutMapping("/camiseta/{idCamiseta}")
     public ResponseEntity<?> editCamisetas(@PathVariable Integer idCamiseta, @RequestBody Camiseta camiseta){
         Camiseta camisetaAEditar = this.camisetaService.getCamisetaById(idCamiseta);

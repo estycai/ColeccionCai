@@ -13,6 +13,8 @@ public class CamisetaDTO_Out {
     private Integer tipo;
     private Double precio;
     private String fotoUrl;
+
+    private String descripcion;
     private List<String> linksDTOList = new ArrayList<>();
 
     public CamisetaDTO_Out(Camiseta camiseta) {
@@ -22,6 +24,7 @@ public class CamisetaDTO_Out {
         this.tipo = camiseta.getTipo();
         this.precio = camiseta.getPrecio();
         this.fotoUrl = camiseta.getFotoUrl();
+        this.descripcion = camiseta.getDescripcion();
 
         for (LinksCamisetas link :camiseta.getLinksCamisetas()) {
             this.linksDTOList.add(link.getLink());
@@ -82,5 +85,13 @@ public class CamisetaDTO_Out {
 
     public void setLinksDTOList(List<String> linksDTOList) {
         this.linksDTOList = linksDTOList;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

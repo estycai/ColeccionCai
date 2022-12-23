@@ -13,6 +13,7 @@ public class Camiseta {
     @Column(name = "anio")
     private Integer anio;
 
+
     @Column(name = "laTengo")
     private Boolean laTengo;
 
@@ -25,19 +26,23 @@ public class Camiseta {
     @Column(name ="fotoUrl")
     private String fotoUrl;
 
+    @Column(name = "descripcion")
+    private String descripcion;
+
     @OneToMany(mappedBy = "camiseta")
     private List<LinksCamisetas> linksCamisetas;
 
     public Camiseta() {
     }
 
-    public Camiseta(long id, Integer anio, Boolean laTengo, Integer tipo, Double precio, String fotoUrl) {
+    public Camiseta(long id, Integer anio, Boolean laTengo, Integer tipo, Double precio, String fotoUrl, String descripcion) {
         this.id = id;
         this.anio = anio;
         this.laTengo = laTengo;
         this.tipo = tipo;
         this.precio = precio;
         this.fotoUrl = fotoUrl;
+        this.descripcion = descripcion;
     }
 
     public long getId() {
@@ -94,5 +99,13 @@ public class Camiseta {
 
     public void setLinksCamisetas(List<LinksCamisetas> linksCamisetas) {
         this.linksCamisetas = linksCamisetas;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

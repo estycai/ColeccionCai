@@ -1,25 +1,46 @@
-<div class="row mt-4 mb-5 px-4 pl-2">
+<!-- <div class="row mt-4 mb-5 px-4 pl-2">
     <div class="col">
-        <div>
-            <span>Total Coleccion</span>
-            <ngb-progressbar [value]="20" type="danger"></ngb-progressbar>
-        </div>
-        <div>
-            <span>Titulares</span>
-            <ngb-progressbar [value]="75" type="danger"></ngb-progressbar>
-        </div>
-        <div>
-            <span>Suplentes</span>
-            <ngb-progressbar [value]="25" type="secondary"></ngb-progressbar>
-        </div>
-        <div>
-            <span>Edicion Limitada</span>
-            <ngb-progressbar [value]="5" type="dark"></ngb-progressbar>
-        </div>
-        
-      
-<!--         
-        <ngb-progressbar class="mb-3" [value]="50"></ngb-progressbar>
-        <ngb-progressbar class="mb-3" [value]="75"></ngb-progressbar> -->
+
+    </div>
+</div> -->
+
+<div class="row mt-4 mb-5 ">
+    <div class="col-12">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Estadisticas
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" >
+                <div class="accordion-body">
+                
+                    <div style="margin-top: 10px;">
+                        <span>Total Coleccion  <span style="font-size: 12px;">({{estadisticasTotal.tengo}} / {{estadisticasTotal.total}})</span></span>
+                        <ngb-progressbar [value]="estadisticasTotal.porcentaje" type="danger"></ngb-progressbar>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <span>Titulares <span style="font-size: 12px;">({{estadisticasTitulares.tengo}} / {{estadisticasTitulares.total}})</span> </span>
+                        <ngb-progressbar [value]="estadisticasTitulares.porcentaje" type="danger"></ngb-progressbar>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <span>Suplentes  <span style="font-size: 12px;">({{estadisticasSuplentes.tengo}} / {{estadisticasSuplentes.total}})</span></span>
+                        <ngb-progressbar [value]="estadisticasSuplentes.porcentaje" type="secondary"></ngb-progressbar>
+                    </div>
+                    <div style="margin-top: 10px;"> 
+                        <span>Edicion Limitada  <span style="font-size: 12px;">({{estadisticasELimitadas.tengo}} / {{estadisticasELimitadas.total}})</span></span>
+                        <ngb-progressbar [value]="estadisticasELimitadas.porcentaje" type="dark"></ngb-progressbar>
+                    </div>
+                    <div style="margin-top: 12px;"> 
+                        <h6>Total: ${{totalGastado}}</h6>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
     </div>
 </div>
