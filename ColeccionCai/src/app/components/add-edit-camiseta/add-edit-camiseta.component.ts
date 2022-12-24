@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Camiseta } from 'src/app/models/Camiseta';
 import { CamisetaService } from 'src/app/services/camiseta.service';
 
@@ -12,9 +13,13 @@ import { CamisetaService } from 'src/app/services/camiseta.service';
 export class AddEditCamisetaComponent implements OnInit {
   camiseta!: Camiseta;
   camisetaForm!: FormGroup;
+ 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private _snackBar: MatSnackBar,
     private camisetaService: CamisetaService
   ) {
     this.camiseta = data.camiseta;
@@ -47,11 +52,21 @@ export class AddEditCamisetaComponent implements OnInit {
     this.camisetaService
       .updateCamiseta(this.camiseta.id, this.camiseta)
       .then((data) => {
-        console.log(data);
+        this.openSnackBar("Camiseta Editada");
       })
       .catch((e) => {
         console.log('catch', e);
       });
+    
+   
+  }
+
+  openSnackBar(info: string) {
+    this._snackBar.open(info, 'Cerrar', {
+      duration : 3000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 
   async eliminarItem(){

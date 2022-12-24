@@ -33,10 +33,13 @@ export class CamisetaInfoComponent implements OnInit {
   openDialog(camiseta: any) {
     console.log(camiseta)
     this.dialog.open(AddEditCamisetaComponent, {
+      
       height: 'auto',
       data: {
         camiseta: camiseta
       },
+      
     });
+
   }
 }

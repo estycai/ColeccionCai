@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TIPOCAMISETA } from 'src/app/constants/tipoCamiseta';
 import { Camiseta } from 'src/app/models/Camiseta';
@@ -20,13 +21,16 @@ export class AddCamisetaComponent implements OnInit {
   camiseta: Camiseta = new Camiseta();
   camisetaFormAdd!: FormGroup;
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   tipoCamisetas: TipoCamisetas[] = [
     {value: TIPOCAMISETA.TITULAR, descripcion: 'Titular'},
     {value: TIPOCAMISETA.SUPLENTE, descripcion: 'Suplente'},
     {value: TIPOCAMISETA.EDICION_ESPECIAL, descripcion: 'Edicion Especial'},
   ];
 
-  constructor(private camisetaService: CamisetaService, private router: Router) { }
+  constructor(private camisetaService: CamisetaService,   private _snackBar: MatSnackBar,private router: Router) { }
 
   ngOnInit(): void {
     this.camisetaFormAdd = new FormGroup({ 
@@ -43,7 +47,16 @@ export class AddCamisetaComponent implements OnInit {
 
   async subirForm(){
     const response = await this.camisetaService.addCamiseta(this.camisetaFormAdd.value);
+    this.openSnackBar("Creada");
     console.log(response)
+  }
+
+  openSnackBar(info: string) {
+    this._snackBar.open(info, 'Cerrar', {
+      duration : 3000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 
   redirect() {

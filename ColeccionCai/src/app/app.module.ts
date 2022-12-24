@@ -19,6 +19,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
@@ -48,6 +49,7 @@ import {MatSelectModule} from '@angular/material/select';
     BrowserModule,
     NgbModule,
     HttpClientModule,
+    
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     BrowserAnimationsModule,
@@ -57,6 +59,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatSnackBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     AppRoutingModule
