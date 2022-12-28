@@ -3,6 +3,7 @@ import { Camiseta } from 'src/app/models/Camiseta';
 import { TIPOCAMISETA } from 'src/app/constants/tipoCamiseta';
 import { AddEditCamisetaComponent } from '../../add-edit-camiseta/add-edit-camiseta.component';
 import { MatDialog } from '@angular/material/dialog';
+import { LinksListComponent } from '../../links-list/links-list.component';
 
 
 @Component({
@@ -31,15 +32,22 @@ export class CamisetaInfoComponent implements OnInit {
   }
 
   openDialog(camiseta: any) {
-    console.log(camiseta)
-    this.dialog.open(AddEditCamisetaComponent, {
-      
+    this.dialog.open(AddEditCamisetaComponent, {    
       height: 'auto',
       data: {
         camiseta: camiseta
       },
       
     });
+  }
 
+  openLinksList(camiseta: any){
+    this.dialog.open(LinksListComponent, {    
+      height: 'auto',
+      data: {
+        camiseta: camiseta
+      },
+      
+    });
   }
 }

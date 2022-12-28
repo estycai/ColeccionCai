@@ -1,1 +1,16 @@
-{}
+{
+  "hosting": {
+    "public": "dist/coleccion-cai",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

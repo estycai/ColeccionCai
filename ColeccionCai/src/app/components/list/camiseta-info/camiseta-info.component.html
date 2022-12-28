@@ -18,7 +18,7 @@
       <h5 class="m-0">{{tipoString}}</h5>
       
       <span *ngIf="camiseta.laTengo" style="font-size: 11px;">{{camiseta.descripcion}} - ${{camiseta.precio}}</span>
-      <span *ngIf="!camiseta.laTengo" style="font-size: 11px;">{{camiseta.descripcion}} - <a href="" class="detail-title">Ver links</a></span>
+      <span *ngIf="!camiseta.laTengo" style="font-size: 11px;">{{camiseta.descripcion}} - <p class="detail-title text-muted" (click)="openLinksList(camiseta)">Ver links</p></span>
 
       
     </div>

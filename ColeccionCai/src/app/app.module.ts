@@ -32,6 +32,12 @@ import { AddCamisetaComponent } from './components/add-camiseta/add-camiseta.com
 import { HomeComponent } from './components/home/home.component';
 
 import {MatSelectModule} from '@angular/material/select';
+import { LinksListComponent } from './components/links-list/links-list.component';
+import { FontAwesomeModule  } from '@fortawesome/angular-fontawesome';
+import { LinksServiceService } from './services/links-service.service';
+
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -43,6 +49,7 @@ import {MatSelectModule} from '@angular/material/select';
     AddEditCamisetaComponent,
     AddCamisetaComponent,
     HomeComponent,
+    LinksListComponent,
     
   ],
   imports: [
@@ -62,9 +69,12 @@ import {MatSelectModule} from '@angular/material/select';
     MatSnackBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
+    
+    FormsModule
   ],
-  providers: [CamisetaService],
+  providers: [CamisetaService, LinksServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

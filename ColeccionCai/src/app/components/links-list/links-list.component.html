@@ -1,0 +1,28 @@
+<ul class="list-group">
+  <li *ngFor="let link of links" class="list-group-item d-flex align-items-center justify-content-between">
+    <fa-icon [icon]="faTshirt"></fa-icon>
+    <a href="{{link.link}}" _blank>{{link.precio}}</a>
+    <button type="button" class="btn btn-danger" (click)="eliminarLink(link)">
+      <fa-icon [icon]="faTrash"></fa-icon>
+    </button>
+  </li>
+
+  <form [formGroup]="formLinkAdd">
+    <li class="list-group-item">
+
+      <div class="input-group">
+        <input type="text" class="form-control" formControlName="link" placeholder="Agregar Link" style="margin-right: 5px;">
+        <input type="number" class="form-control" formControlName="precio" placeholder="$" style="margin-right: 5px;">
+
+        <div class="input-group-append">
+          <button type="button" class="btn btn-success" (click)="addLink()">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
+        </div>
+
+      </div>
+
+
+    </li>
+  </form>
+</ul>

@@ -70,7 +70,6 @@ export class AddEditCamisetaComponent implements OnInit {
   }
 
   async eliminarItem(){
-    console.log(this.camiseta)
     const response = await this.camisetaService.delete(this.camiseta);
     console.log(response)
   }
